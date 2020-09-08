@@ -9,6 +9,8 @@ import Profile from './components/Profile';
 import Welcome from './components/Welcome';
 import About from './components/About';
 import Footer from './components/Footer';
+import AllHikes from './components/AllHikes';
+import Hike from './components/Hike'
 import './App.css';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -65,6 +67,8 @@ function App() {
           />
           <Route path="/about" component={ About } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
+          <Route exact path = "/hike" component={ AllHikes } />
+          <Route path ="/hike/:id" component={Hike} />
           <Route exact path="/" component={ Welcome } />
         </Switch>
       </div>
