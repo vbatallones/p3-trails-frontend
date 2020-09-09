@@ -4,10 +4,11 @@ import { Redirect } from 'react-router-dom';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const EditForm = (props) => {
-
+    console.log(props.user)
     let [long, setLong] = useState(props.user.longitude);
     let [lat, setLat] = useState(props.user.latitude);
     let [dis, setDis] = useState(props.user.radiusTrail);
+    let user = (props.user.id)
     let [redirect, setRedirect] = useState(false);
 
     const handleLong = (e) =>{
@@ -23,7 +24,8 @@ const EditForm = (props) => {
     let handleSubmit = (e) => {
         e.preventDefault();
 
-        const updateInfo = { long, lat, dis }
+        const updateInfo = { long, lat, dis, user}
+        console.log(updateInfo)
 
         axios.post(`${REACT_APP_SERVER_URL}/api/users/profile`, updateInfo)
         .then(response =>{
@@ -40,8 +42,8 @@ const EditForm = (props) => {
                 <h3>Edit your account</h3>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="Longitute">Longitude:</label>
-                        <input name="Latitude" value={long} onChange={handleLong}/>
+                        <label htmlFor="Longitude">Longitude:</label>
+                        <input name="Longitude" value={long} onChange={handleLong}/>
                     </div>
                     <div>
                         <label htmlFor="Latitude">Latitude:</label>
