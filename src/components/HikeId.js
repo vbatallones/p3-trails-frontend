@@ -5,12 +5,17 @@ class HikeId extends Component{
     render(){
         return(
             <div>
-            <h1>{this.props.hike.name}</h1>
-            <h3>{this.props.hike.location}</h3>
-            <p>{this.props.hike.summary}</p>
-            <h3>{this.props.hike.stars}</h3>
-            <h3> Add to your favorites</h3>
-        </div>
+                <h1>{this.props.hike.name}</h1>
+                <h3>{this.props.hike.location}</h3>
+                <p>{this.props.hike.summary}</p>
+                <h3>{this.props.hike.stars}</h3>
+                
+                <form>
+                    <input hidden name="name" value={this.props.hike.name}/>
+                    <input hidden name="name" value={this.props.hike.location}/>
+                    <button type="submit"><h3>Add to your favorites</h3></button>
+                </form>
+            </div>
         )
     }
 }
