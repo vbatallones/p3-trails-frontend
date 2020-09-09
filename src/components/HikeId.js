@@ -11,8 +11,8 @@ class HikeId extends Component{
                 <h3>{this.props.hike.stars}</h3>
                 
                 <form>
-                    <input hidden name="name" value={this.props.hike.name}/>
-                    <input hidden name="name" value={this.props.hike.location}/>
+                    <input hidden name="name" value={this.props.hike._id}/>
+                    <input hidden name="name" value={this.props.user}/>
                     <button type="submit"><h3>Add to your favorites</h3></button>
                 </form>
             </div>

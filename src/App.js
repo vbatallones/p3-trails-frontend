@@ -69,7 +69,7 @@ function App() {
           <Route path="/about" component={ About } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           <Route exact path = "/hike" component={ AllHikes } />
-          <Route path ="/hike/:id" component={Hike} />
+          <Route path ="/hike/:id" component={Hike} user={currentUser} />
           <Route exact path="/" component={ Welcome } />
         </Switch>
       </div>
