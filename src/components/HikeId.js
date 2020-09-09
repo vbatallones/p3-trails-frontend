@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
+
 const HikeId = (props) => {
 	
     console.log(props.user)
@@ -37,6 +38,7 @@ const HikeId = (props) => {
 				</form>
 			</div>
 		);
+
 }
 
 export default HikeId;

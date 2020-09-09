@@ -69,8 +69,10 @@ function App() {
           />
           <Route path="/about" component={ About } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
+
           <Route exact path= "/hike" render={ (props) => <AllHikes {...props}  user={currentUser}/>}/>
           <Route path="/hike/:id" render={ (props) => <Hike  {...props}  user={currentUser}/>} />
+
           <Route exact path="/" component={ Welcome } />
         </Switch>
       </div>
