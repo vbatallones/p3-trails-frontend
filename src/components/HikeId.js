@@ -16,7 +16,7 @@ const HikeId = (props) => {
 		
         const value1 = event.target[0].value;
         const value2 = event.target[1].value;
-		console.log('-----------------',event.target[1].value);
+		// console.log('-----------------',event.target[1].value);
 		axios
 			.post(`${REACT_APP_SERVER_URL}/trails/create`, {
                 name: value1,
