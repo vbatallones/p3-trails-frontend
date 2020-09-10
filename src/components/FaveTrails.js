@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -19,10 +20,9 @@ const FaveTrails = (props) => {
     }, [props.user.id]);
     
   
+	const trails = faveTrails.map((trail, idx) => {
     
     //map through the trails
-	const trails = faveTrails.map((trail, idx) => {
-          // handle delete function
 	const handleDelete = (e) => {
 		console.log(trail._id);
 		let url = `${REACT_APP_SERVER_URL}/usertrails/${trail._id}`;
@@ -32,10 +32,12 @@ const FaveTrails = (props) => {
 				console.log(response);
 			})
 			.catch((err) => console.log(err));
-    };
+	};
 		console.log(trail);
+		// handle delete function
 		return [
-			<p key={idx}> {trail.name}</p>,
+			// <p key={idx}> {trail.name} </p>,
+			<p key={idx}> <Link to= {{pathname: `/hike/${trail.id}`}}> {trail.name} </Link> </p>,
 			<button onClick={handleDelete}>Delete</button>,
 		];
 	});
