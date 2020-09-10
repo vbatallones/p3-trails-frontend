@@ -1,12 +1,18 @@
 import React from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 
 const HikeId = (props) => {
 	
     console.log(props.user)
+
+	let history = useHistory();
+
+    const goBackHandle = () => {
+        history.push('/hike/');
+    }
 
 	const handleSubmit = (event) => {
         event.preventDefault();
@@ -37,6 +43,7 @@ const HikeId = (props) => {
 						<h3> Add to your favorites</h3>
 					</button>
 				</form>
+				<button onClick={goBackHandle}>Go Back to Trails</button>
 			</div>
 		);
 
