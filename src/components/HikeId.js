@@ -37,10 +37,11 @@ const HikeId = (props) => {
 				<h3>{props.hike.location}</h3>
 				<p>{props.hike.summary}</p>
 				<h3>{props.hike.stars}</h3>
+				<img src={props.hike.imgSmallMed}/>
                 <form onSubmit={handleSubmit}>
 					<input hidden type="text" name="name" value={props.hike.name} />
 					<button type="submit" >
-						<h3> Add to your favorites</h3>
+						Add to your favorites
 					</button>
 				</form>
 				<button onClick={goBackHandle}>Go Back to Trails</button>

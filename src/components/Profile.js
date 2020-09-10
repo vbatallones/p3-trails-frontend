@@ -1,8 +1,30 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Profile = (props) => {
-    // console.log(props);
+	
+	const [faveTrails, setFaveTrails] = useState([]);
+
+	useEffect(() => {
+		axios
+			.get(`${REACT_APP_SERVER_URL}/api/users/${props.user.id}`)
+			.then((response) => {
+				console.log('Success call', response.data.userTrails);
+				setFaveTrails(response.data.userTrails);
+			})
+			.catch((err) => console.log(err));
+    }, [props.user.id]);
+
+
+	const trails = faveTrails.map((t, idx) => {
+		console.log(t)
+		return <div key={idx}>{t.name}</div>
+	})
+
+
+
     const userData = props.user ? 
     (<div>
         <h1>Profile</h1>
