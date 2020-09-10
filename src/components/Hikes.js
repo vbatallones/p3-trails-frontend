@@ -9,6 +9,7 @@ const Hikes = (props) => {
             <h3>{props.hike.location}</h3>
             <p>{props.hike.summary}</p>
             <h3>{props.hike.stars}</h3>
+            <img src={props.hike.imgSmallMed} alt="trail"/>
             <h3> <Link to= {{pathname: `/hike/${props.hike.id}`}}> View this hike </Link></h3>
         </div>
         )
