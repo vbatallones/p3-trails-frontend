@@ -7,13 +7,14 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 const HikeId = (props) => {
 	
     console.log(props.user)
+
 	const handleSubmit = (event) => {
         event.preventDefault();
         
         console.log(event.target[0].value);
         console.log(REACT_APP_SERVER_URL)
         const value = event.target[0].value
-		axios.post(`${REACT_APP_SERVER_URL}/trails/create`, {
+		axios.post(`${REACT_APP_SERVER_URL}/trails/createtrail`, {
             name: value,
             user: props.user
 			
