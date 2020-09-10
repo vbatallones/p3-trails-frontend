@@ -1,15 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect} from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import EditForm from './EditForm';
+import axios from 'axios';
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
 
 const Profile = (props) => {
-    // console.log(props);
+    let [currentForm, setForm] = useState("Edit User");
+    let [user, setUser] = useState('');
+    let [userId, setUserId] = useState('')
+    console.log({props});
+
     const userData = props.user ? 
     (<div>
         <h1>Profile</h1>
-        <p><strong>Name:</strong> {props.user.name}</p>
-        <p><strong>display name:</strong> {props.user.displayName}</p>
+        <p><strong>Name:</strong> {user.name}</p>
         <p><strong>Email:</strong>  {props.user.email}</p>
-        <p><strong>ID:</strong>  {props.user.id}</p>
+        <p className="id" name="id"><strong>ID:</strong>  {props.user.id}</p>
+        <p><strong>Longitude:</strong> {user.longitude}</p>
+        <p><strong>Latitude:</strong>  {user.latitude}</p>
+        <p><strong>Distance from Trails:</strong>  {user.radiusTrail}</p>
+
+        <input type ="button" onClick={() => ({currentForm}="Edit User") ? (setForm(currentForm = "Cancel"), console.log({currentForm})) : (setForm(currentForm="Edit User"), console.log({currentForm}))} value={currentForm}/>
     </div>) : <h4>Loading...</h4>
 
     const errorDiv = () => {
@@ -20,9 +31,31 @@ const Profile = (props) => {
         )
     }
 
+
+    const getUserData = async () => {
+        console.log(props.user.id)
+      try {
+        const res = await axios.post(
+            `${REACT_APP_SERVER_URL}/api/users/profile/get`, {_id: props.user.id}
+        );
+        setUser(res.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    useEffect(() => {
+        getUserData();
+      }, [props.user.id]);
+
+
     return(
         <div>
+            <div>
             {props.user ? userData : errorDiv}
+            </div>
+            <EditForm user={props.user} />
+            
         </div>
     )
 
