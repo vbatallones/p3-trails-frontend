@@ -9,8 +9,8 @@ import Profile from './components/Profile';
 import Welcome from './components/Welcome';
 import About from './components/About';
 import Footer from './components/Footer';
-import Hikes from './components/AllHikes';
 import Hike from './components/Hike'
+import FaveTrails from './components/FaveTrails'
 import './App.css';
 import AllHikes from './components/AllHikes';
 
@@ -72,6 +72,7 @@ function App() {
           <Route exact path= "/hike" render={ (props) => <AllHikes {...props}  user={currentUser}/>}/>
           <Route path="/hike/:id" render={ (props) => <Hike  {...props}  user={currentUser}/>} />
           <Route exact path="/" component={ Welcome } />
+          <Route exact path="/favetrails" component={ FaveTrails } />
         </Switch>
       </div>
       <Footer />
