@@ -22,13 +22,13 @@ class Hike extends Component{
         .then(res => res.json())
         .then(data => this.setState({hikes: data.trails}))
         .catch(err =>{
-          console.log('Error while fetching trails', err)
+            console.log('Error while fetching trails', err)
         })
-      }
+    }
 
     render(){
         let hikes = this.state.hikes.map((hike,i) =>{
-            return <HikeId key={i} hike={hike} />
+            return <HikeId key={i} hike={hike} user={this.props.user}/>
         })
 
 

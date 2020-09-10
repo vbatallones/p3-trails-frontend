@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import Hikes from './Hikes';
-
 require('dotenv').config()
-var fetch = require('node-fetch');
+const fetch = require('node-fetch');
+
+
 const API_KEY = process.env.REACT_APP_API_KEY;
 const REACT_APP_HIKE_ID = process.env.REACT_APP_HIKE_ID;
 
@@ -13,9 +13,10 @@ const DISTANCE = process.env.REACT_APP_DISTANCE;
 let fetchAllHTML = `https://www.hikingproject.com/data/get-trails?lat=${REACT_APP_LAT}&lon=${REACT_APP_LONG}&maxDistance=${DISTANCE}&key=${API_KEY}`
 
 class AllHikes extends Component{
+
     state = {
-        hikes: []
-      }
+      hikes: []
+    }
     
     
       componentDidMount() {
@@ -34,15 +35,17 @@ class AllHikes extends Component{
       }
 
     render(){
+      console.log(this.props.user)
         let hikes = this.state.hikes.map((hike, i) =>{
-            return <Hikes key={i} hike={hike} />
-          })
+            return <Hikes key={i} hike={hike} user={this.props.user}/>
+        })
         return(
             
             <div>
               {hikes}
             </div>
         )
+      
     }
 }
 

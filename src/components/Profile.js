@@ -5,7 +5,7 @@ import axios from 'axios';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
 
 const Profile = (props) => {
-   let [currentForm, setForm] = useState("Edit User");
+    let [currentForm, setForm] = useState("Edit User");
     let [user, setUser] = useState('');
     let [userId, setUserId] = useState('')
     console.log({props});

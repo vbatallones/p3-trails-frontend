@@ -9,9 +9,10 @@ import Profile from './components/Profile';
 import Welcome from './components/Welcome';
 import About from './components/About';
 import Footer from './components/Footer';
-import AllHikes from './components/AllHikes';
+import Hikes from './components/AllHikes';
 import Hike from './components/Hike'
 import './App.css';
+import AllHikes from './components/AllHikes';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
@@ -43,6 +44,7 @@ function App() {
     setIsAuthenticated(true);
   };
 
+
   const handleLogout = () => {
     if (localStorage.getItem('jwtToken')) {
       localStorage.removeItem('jwtToken');
@@ -52,7 +54,7 @@ function App() {
   }
 
   console.log('Current User', currentUser);
-  console.log('Authenticated', isAuthenticated);
+  // console.log('Authenticated', isAuthenticated);
 
 
   return (
@@ -67,8 +69,10 @@ function App() {
           />
           <Route path="/about" component={ About } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
-          <Route exact path = "/hike" component={ AllHikes } />
-          <Route path ="/hike/:id" component={Hike} />
+
+          <Route exact path= "/hike" render={ (props) => <AllHikes {...props}  user={currentUser}/>}/>
+          <Route path="/hike/:id" render={ (props) => <Hike  {...props}  user={currentUser}/>} />
+
           <Route exact path="/" component={ Welcome } />
         </Switch>
       </div>

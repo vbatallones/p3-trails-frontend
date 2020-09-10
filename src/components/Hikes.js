@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 
-class Hikes extends Component{
-    render(){
+const Hikes = (props) => {
+    // console.log(props)
         return(
-            <div>
-            <h1>{this.props.hike.name}</h1>
-            <h3>{this.props.hike.location}</h3>
-            <p>{this.props.hike.summary}</p>
-            <h3>{this.props.hike.stars}</h3>
-            <h3> <Link to= {{pathname: `/hike/${this.props.hike.id}`}}> View this hike </Link></h3>
+        <div>
+            <h1>{props.hike.name}</h1>
+            <h3>{props.hike.location}</h3>
+            <p>{props.hike.summary}</p>
+            <h3>{props.hike.stars}</h3>
+            <h3> <Link to= {{pathname: `/hike/${props.hike.id}`}}> View this hike </Link></h3>
         </div>
         )
-    }
+    
 }
 
 export default Hikes
