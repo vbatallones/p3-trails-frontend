@@ -74,7 +74,7 @@ function App() {
           <Route path="/hike/:id" render={ (props) => <Hike  {...props}  user={currentUser}/>} />
 
           <Route exact path="/" component={ Welcome } />
-          <Route exact path="/favetrails" component={ FaveTrails } />
+          <Route exact path="/favetrails" render={ (props) => <FaveTrails  {...props}  user={currentUser}/>} />
         </Switch>
       </div>
       <Footer />
