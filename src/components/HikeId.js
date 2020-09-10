@@ -17,11 +17,9 @@ const HikeId = (props) => {
 	const handleSubmit = (event) => {
         event.preventDefault();
         
-        console.log(event.target[0].value);
-        console.log(REACT_APP_SERVER_URL)
-        const value = event.target[0].value
+        const value1 = event.target[0].value
 		axios.post(`${REACT_APP_SERVER_URL}/trails/createtrail`, {
-            name: value,
+			name: value1,
             user: props.user
 			
         })
@@ -39,7 +37,7 @@ const HikeId = (props) => {
 				<h3>{props.hike.stars}</h3>
 				<img src={props.hike.imgSmallMed}/>
                 <form onSubmit={handleSubmit}>
-					<input hidden type="text" name="name" value={props.hike.name} />
+					<input hidden name="name" value={props.hike.name} />
 					<button type="submit" >
 						Add to your favorites
 					</button>
