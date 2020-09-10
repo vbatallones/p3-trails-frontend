@@ -16,7 +16,7 @@ const FaveTrails = (props) => {
 				setFaveTrails(response.data.userTrails);
 			})
 			.catch((err) => console.log(err));
-    }, [props.user.id]);
+    }, []);
     
   
     
