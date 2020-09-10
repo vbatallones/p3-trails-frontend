@@ -7,12 +7,7 @@ const fetch = require('node-fetch');
 
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const REACT_APP_HIKE_ID = process.env.REACT_APP_HIKE_ID;
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
-
-const REACT_APP_LAT = process.env.REACT_APP_LAT;
-const REACT_APP_LONG = process.env.REACT_APP_LONG;
-const DISTANCE = process.env.REACT_APP_DISTANCE;
 
 
 class AllHikes extends Component{
