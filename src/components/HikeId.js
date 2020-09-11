@@ -39,8 +39,11 @@ const HikeId = (props) => {
 				
 				<h1>{props.hike.name}</h1>
 				<h3>{props.hike.location}</h3>
+				<h4>Length: {props.hike.length} Miles</h4>
+				<h4>Ascent: {props.hike.ascent}ft</h4>
+				<h4>Descent: {props.hike.descent}ft</h4>
 				<p>{props.hike.summary}</p>
-				<h3>{props.hike.stars}</h3>
+				<h3>Rating: {props.hike.stars}</h3>
 				<img src={props.hike.imgSmallMed} alt="trail picture"/>
                 <form onSubmit={handleSubmit}>
 				
