@@ -11,7 +11,7 @@ const Profile = (props) => {
     console.log({props});
 
     const userData = props.user ? 
-    (<div>
+    (<div className="hikesList">
         <h1>Profile</h1>
         <p><strong>Name:</strong> {user.name}</p>
         <p><strong>Email:</strong>  {props.user.email}</p>
@@ -20,7 +20,7 @@ const Profile = (props) => {
         <p><strong>Latitude:</strong>  {user.latitude}</p>
         <p><strong>Distance from Trails:</strong>  {user.radiusTrail}</p>
 
-        <input type ="button" onClick={() => ({currentForm}="Edit User") ? (setForm(currentForm = "Cancel"), console.log({currentForm})) : (setForm(currentForm="Edit User"), console.log({currentForm}))} value={currentForm}/>
+        {/* <input type ="button" onClick={() => ({currentForm}="Edit User") ? (setForm(currentForm = "Cancel"), console.log({currentForm})) : (setForm(currentForm="Edit User"), console.log({currentForm}))} value={currentForm}/> */}
     </div>) : <h4>Loading...</h4>
 
     const errorDiv = () => {

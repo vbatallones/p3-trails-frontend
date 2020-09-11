@@ -37,8 +37,10 @@ const FaveTrails = (props) => {
 		// handle delete function
 		return [
 			// <p key={idx}> {trail.name} </p>,
-			<p key={idx}> <Link to= {{pathname: `/hike/${trail.id}`}}> {trail.name} </Link> </p>,
-			<button onClick={handleDelete}>Delete</button>,
+			<div className="faveList">
+			<p key={idx}> <Link to= {{pathname: `/hike/${trail.id}`}}><span className="faveName"> {trail.name} </span></Link> </p>
+			<button className="deleteBtn" onClick={handleDelete}>Delete</button>
+			</div>
 		];
 	});
 	return (
