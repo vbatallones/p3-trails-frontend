@@ -11,7 +11,7 @@ const Profile = (props) => {
     console.log({ props });
     
 	const userData = props.user ? (
-		<div>
+		<div className="hikesList">
 			<h1>Profile</h1>
 			<p>
 				<strong>Name:</strong> {user.name}
@@ -32,7 +32,7 @@ const Profile = (props) => {
 				<strong>Distance from Trails:</strong> {user.radiusTrail}
 			</p>
 
-			<input
+			{/* <input
 				type="button"
 				onClick={() =>
 					({ currentForm } = 'Edit User')
@@ -41,7 +41,7 @@ const Profile = (props) => {
 						console.log({ currentForm }))
 				}
 				value={currentForm}
-			/>
+			/> */}
 		</div>
 	) : (
 		<h4>Loading...</h4>

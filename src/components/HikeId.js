@@ -35,7 +35,7 @@ const HikeId = (props) => {
         .catch(err => console.log(err))
 	}
 		return (
-			<div>
+			<div className="hikesList">
 				
 				<h1>{props.hike.name}</h1>
 				<h3>{props.hike.location}</h3>
@@ -48,11 +48,11 @@ const HikeId = (props) => {
 					
 					<input hidden name="id" value={props.hike.id} />
 
-					<button type="submit" >
+					<button className="deleteBtn" type="submit" >
 						Add to your favorites
 					</button>
 				</form>
-				<button onClick={goBackHandle}>Go Back to Trails</button>
+				<button className="deleteBtn" onClick={goBackHandle}>Go Back to Trails</button>
 			</div>
 		);
 
