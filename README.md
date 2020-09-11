@@ -1,5 +1,8 @@
 # Trail Blazer
 Trail Blazer is a project that utilizes MongoDB, React components, and the 3rd party API Hiking Project, (https://www.hikingproject.com/data). Sensitive user data is hidden with genSalt, and verified with token.
+
+![screenshot of app](https://i.imgur.com/LEnqGBih.png)
+
 #### User Stories
 - A user can create an account with a username and password.
 - A user can update their account's latitude, longitude, and distance from hikes.
