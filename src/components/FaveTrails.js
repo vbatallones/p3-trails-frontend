@@ -10,6 +10,10 @@ const FaveTrails = (props) => {
 
     // axios call the user in the backend with all the trails saved in the user
 	useEffect(() => {
+		handleTrails();
+    }, [faveTrails]);
+	
+	const handleTrails = () => {
 		axios
 			.get(`${REACT_APP_SERVER_URL}/api/users/${props.user.id}`)
 			.then((response) => {
@@ -17,28 +21,40 @@ const FaveTrails = (props) => {
 				setFaveTrails(response.data.userTrails);
 			})
 			.catch((err) => console.log(err));
-    }, [props.user.id]);
-    
-  
-	const trails = faveTrails.map((trail, idx) => {
-    
-    //map through the trails
+
+	}
+
+
 	const handleDelete = (e) => {
-		console.log(trail._id);
-		let url = `${REACT_APP_SERVER_URL}/usertrails/${trail._id}`;
+		console.log(`clicked`)
+		const user = props.user.id
+		const trail = e.target.value
+		let url = `${REACT_APP_SERVER_URL}/trails/delete`;
 		axios
-			.delete(url)
+			.post(url, {
+				_id: user,
+				userTrails: trail
+			}) 
 			.then((response) => {
-				console.log(response);
+				console.log(response.data);
+				setFaveTrails(response.data.userTrails);
+				handleTrails()
+				
 			})
 			.catch((err) => console.log(err));
-	};
+
+    };
+    
+    //map through the trails
+	const trails = faveTrails.map((trail, idx) => {
+ master
 		console.log(trail);
 		// handle delete function
 		return [
-			// <p key={idx}> {trail.name} </p>,
-			<p key={idx}> <Link to= {{pathname: `/hike/${trail.id}`}}> {trail.name} </Link> </p>,
-			<button onClick={handleDelete}>Delete</button>,
+
+			<p key={idx}> {trail.name}</p>,
+			<button onClick={handleDelete} value={trail.name} >Delete</button>,
+
 		];
 	});
 	return (
