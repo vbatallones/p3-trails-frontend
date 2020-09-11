@@ -8,22 +8,8 @@ const Profile = (props) => {
 	let [currentForm, setForm] = useState('Edit User');
 	let [user, setUser] = useState('');
 	let [userId, setUserId] = useState('');
-	console.log({ props });
-
-<<<<<<< HEAD
-    const userData = props.user ? 
-    (<div className="hikesList">
-        <h1>Profile</h1>
-        <p><strong>Name:</strong> {user.name}</p>
-        <p><strong>Email:</strong>  {props.user.email}</p>
-        <p className="id" name="id"><strong>ID:</strong>  {props.user.id}</p>
-        <p><strong>Longitude:</strong> {user.longitude}</p>
-        <p><strong>Latitude:</strong>  {user.latitude}</p>
-        <p><strong>Distance from Trails:</strong>  {user.radiusTrail}</p>
-
-        {/* <input type ="button" onClick={() => ({currentForm}="Edit User") ? (setForm(currentForm = "Cancel"), console.log({currentForm})) : (setForm(currentForm="Edit User"), console.log({currentForm}))} value={currentForm}/> */}
-    </div>) : <h4>Loading...</h4>
-=======
+    console.log({ props });
+    
 	const userData = props.user ? (
 		<div>
 			<h1>Profile</h1>
@@ -60,7 +46,7 @@ const Profile = (props) => {
 	) : (
 		<h4>Loading...</h4>
 	);
->>>>>>> bfac57d866c0def64a00e894841d66d455baba21
+
 
 	const errorDiv = () => {
 		return (

@@ -47,7 +47,6 @@ const FaveTrails = (props) => {
     
     //map through the trails
 	const trails = faveTrails.map((trail, idx) => {
- master
 		console.log(trail);
 		// handle delete function
 		return [
