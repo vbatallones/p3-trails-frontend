@@ -15,7 +15,7 @@ const Profile = (props) => {
 			<h1>Profile</h1>
             <div className="hikesList">
 			<p>
-				{user.name} INFO
+				{user.name} info:
 			</p>
 			<p>
 				<strong>Email:</strong> {props.user.email}

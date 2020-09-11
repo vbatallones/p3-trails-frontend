@@ -64,3 +64,14 @@ body {
   background-color: burlywood;
   color: teal;
 }
+
+.chart{
+  /* display: inline-block; */
+  float: right;
+  margin: 10px;
+}
+
+.button{
+  display: inline;
+  margin: 10px;
+}

@@ -39,23 +39,27 @@ const HikeId = (props) => {
 				
 				<h1>{props.hike.name}</h1>
 				<h3>{props.hike.location}</h3>
+				<img className="chart" src="https://i.imgur.com/yO7cOial.png" alt="difficulty chart"/>
+				<h4>Difficulty: {props.hike.difficulty}</h4>
 				<h4>Length: {props.hike.length} Miles</h4>
 				<h4>Ascent: {props.hike.ascent}ft</h4>
 				<h4>Descent: {props.hike.descent}ft</h4>
 				<p>{props.hike.summary}</p>
 				<h3>Rating: {props.hike.stars}</h3>
 				<img src={props.hike.imgSmallMed} alt="trail picture"/>
-                <form onSubmit={handleSubmit}>
-				
-					<input hidden name="name" value={props.hike.name} />
+				<div className="button">
+					<form onSubmit={handleSubmit}>
 					
-					<input hidden name="id" value={props.hike.id} />
+						<input hidden name="name" value={props.hike.name} />
+						
+						<input hidden name="id" value={props.hike.id} />
 
-					<button className="deleteBtn" type="submit" >
-						Add to your favorites
-					</button>
-				</form>
-				<button className="deleteBtn" onClick={goBackHandle}>Go Back to Trails</button>
+						<button className="deleteBtn button" type="submit" >
+							Add to your favorites
+						</button>
+					</form>
+					<button className="deleteBtn button" onClick={goBackHandle}>Go Back to Trails</button>
+				</div>
 			</div>
 		);
 
