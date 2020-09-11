@@ -23,7 +23,8 @@ const FaveTrails = (props) => {
 			.catch((err) => console.log(err));
 
 	}
-
+	
+	const trails = faveTrails.map((trail, idx) => {
 
 	const handleDelete = (e) => {
 		console.log(`clicked`)
@@ -46,7 +47,6 @@ const FaveTrails = (props) => {
     };
     
     //map through the trails
-	const trails = faveTrails.map((trail, idx) => {
 		console.log(trail);
 		// handle delete function
 		return [

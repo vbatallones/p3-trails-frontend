@@ -41,7 +41,7 @@ const HikeId = (props) => {
 				<h3>{props.hike.location}</h3>
 				<p>{props.hike.summary}</p>
 				<h3>{props.hike.stars}</h3>
-				<img src={props.hike.imgSmallMed}/>
+				<img src={props.hike.imgSmallMed} alt="trail picture"/>
                 <form onSubmit={handleSubmit}>
 				
 					<input hidden name="name" value={props.hike.name} />
