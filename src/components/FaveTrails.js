@@ -47,14 +47,14 @@ const FaveTrails = (props) => {
     
     //map through the trails
 	const trails = faveTrails.map((trail, idx) => {
+
 		console.log(trail);
 		// handle delete function
 		return [
-			// <p key={idx}> {trail.name} </p>,
-			<div className="faveList">
-			<p key={idx}> <Link to= {{pathname: `/hike/${trail.id}`}}><span className="faveName"> {trail.name} </span></Link> </p>
-			<button className="deleteBtn" value={trail.name} onClick={handleDelete}>Delete</button>
-			</div>
+
+			<p key={idx}> {trail.name}</p>,
+			<button onClick={handleDelete} value={trail.name} >Delete</button>,
+
 		];
 	});
 	return (
